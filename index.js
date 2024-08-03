@@ -5,13 +5,15 @@ const vendorRouter = require ('./router/vendorRouter');
 const bodyparser = require ('body-parser');
 const firmRouter = require ('./router/firmRouter');
 const productRouter = require ('./router/productRouter');
-const path = require ('path')
+const path = require ('path');
+const cors = require('cors')
 
 
 const app = express();
 
 const PORT = process.env.PORT || 4000;
 dotEnv.config();
+app.use(cors());
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
